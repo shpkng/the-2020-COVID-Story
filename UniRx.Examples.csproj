@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{fe3a6201-5af1-c09c-e5ea-45c9f39e1ef8}</ProjectGuid>
+    <ProjectGuid>{34f72a57-5fc8-485f-35ff-f39561b1aa8d}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -287,7 +287,7 @@
      <HintPath>/Applications/Unity/Hub/Editor/2021.1.7f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
-     <HintPath>/Users/wuchenyang/thebond/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+     <HintPath>/Users/wuchenyang/the-2020-COVID-Story/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>/Applications/Unity/Hub/Editor/2021.1.7f1c1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -638,21 +638,21 @@
      <HintPath>/Applications/Unity/Hub/Editor/2021.1.7f1c1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/netstandard.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.TestRunner">
-     <HintPath>/Users/wuchenyang/thebond/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+     <HintPath>/Users/wuchenyang/the-2020-COVID-Story/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.TestRunner">
-     <HintPath>/Users/wuchenyang/thebond/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+     <HintPath>/Users/wuchenyang/the-2020-COVID-Story/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>/Users/wuchenyang/thebond/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>/Users/wuchenyang/the-2020-COVID-Story/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/wuchenyang/thebond/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>/Users/wuchenyang/the-2020-COVID-Story/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UniRx.csproj">
-      <Project>{b9b4503b-0078-0162-ad47-cca641ea4d4f}</Project>
+      <Project>{5e9661d5-653e-22c5-e6cc-1d82dd4d2355}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>

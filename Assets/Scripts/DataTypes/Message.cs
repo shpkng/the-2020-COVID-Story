@@ -1,20 +1,47 @@
 // Author: wuchenyang(shpkng@gmail.com)
-public interface IMessage
+public interface IMessage :IDatum
 {
-    uint id { get;  }
-    Content[] contents { get; }
+    PostContent[] contents { get; }
 }
 
 public struct Message:IMessage
 {
-    public Content[] _contents;
+    public PostContent[] _contents;
     public uint id { get; }
-    public Content[] contents { get; }
+    public PostContent[] contents { get; }
+    public void Read()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Write()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Merge(bool @override)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 public struct ReplyMessage : IMessage
 {
-    public Content[] _contents;
+    public PostContent[] _contents;
     public uint id { get; }
-    public Content[] contents { get; }
+    public PostContent[] contents { get; }
+    public void Read()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Write()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Merge(bool @override)
+    {
+        throw new System.NotImplementedException();
+    }
 }

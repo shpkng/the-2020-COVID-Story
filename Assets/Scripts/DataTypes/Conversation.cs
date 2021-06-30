@@ -2,8 +2,23 @@
 
 using System.Collections.Generic;
 
-public struct Conversation
+public struct Conversation:IDatum
 {
-    private ushort id;
+    public uint id { get; }
     private List<Message> _messages;
+
+    public void Read()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Write()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Merge(bool @override)
+    {
+        throw new System.NotImplementedException();
+    }
 }

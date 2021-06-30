@@ -10,7 +10,7 @@ using UnityEngine;
            var res =  SaveManager.ResetLocal();
            if (!res)
            {
-               Debug.LogError("WTF");
+               Debug.LogError("Reset failed.");
            }
            
            

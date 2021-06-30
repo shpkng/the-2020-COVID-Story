@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-public class EventDataOrganizer
+public class GameEventDataOrganizer
 {
     private List<EventDependency> events = new List<EventDependency>();
 }

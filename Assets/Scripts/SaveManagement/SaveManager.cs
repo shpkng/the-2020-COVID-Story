@@ -17,6 +17,7 @@ public class SaveManager
 
     public static bool ResetLocal()
     {
+        DBManager.LoadDefault();
         return instance._ResetLocal();
     }
 

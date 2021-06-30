@@ -1,22 +1,23 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
-enum EventDependencyType
+public enum PostContentType
 {
-    SawTwitter,
-    PostTwitter,
-    
-    GetNewFriend,
-    ApplyNewFriend,
-    AcceptNewFriend,
-    
-    SawMessage,
-    SendMessage,
+    Text,
+    Audio,
+    Image,
+    Video,
+    Contact,
+    Address,
 }
 
-public struct EventDependency:IDatum
+public struct PostContent : IDatum
 {
-    public uint conditionId;
+    public PostContentType type;
+    public object content;
+    private uint _id;
+
     public uint id { get; }
+
     public void Read()
     {
         throw new System.NotImplementedException();

@@ -29,6 +29,7 @@ public struct User : IDatum
     public Nationality nationality;
     public Occupation occupation;
     public Occupation prevOccupation;
+    public Personality personality;
     public uint id { get; }
 
     public void Read()

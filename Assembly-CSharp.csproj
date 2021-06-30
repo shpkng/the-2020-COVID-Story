@@ -43,14 +43,16 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\DataTypes\EventDependency.cs" />
      <Compile Include="Assets\Scripts\DataTypes\IDatum.cs" />
-     <Compile Include="Assets\Scripts\EventManagement\EventDataOrganizer.cs" />
      <Compile Include="Assets\Scripts\DataTypes\Person.cs" />
+     <Compile Include="Assets\Scripts\DataTypes\Personalities\Personality.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\DataManagers\DataManager.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\GameEventManagement\GameEventDataOrganizer.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\GameEventManagement\GameEventManager.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\GameLauncher.cs" />
      <Compile Include="Assets\Scripts\SaveManagement\SaveManager.cs" />
      <Compile Include="Assets\Scripts\DataTypes\PostContent.cs" />
-     <Compile Include="Assets\Scripts\EventManagement\EventManager.cs" />
      <Compile Include="Assets\Scripts\DataTypes\Message.cs" />
      <Compile Include="Assets\Scripts\DataTypes\Event.cs" />
-     <Compile Include="Assets\Scripts\GameLauncher.cs" />
      <Compile Include="Assets\Scripts\DataTypes\Conversation.cs" />
      <Reference Include="UnityEngine">
      <HintPath>D:/UnityEditors/2021.1.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -755,6 +757,9 @@
       <Project>{5e9661d5-653e-22c5-e6cc-1d82dd4d2355}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Scripts\UI" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -1,18 +1,10 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
-using System;
-using System.Collections.Generic;
 using SQLite;
-using UnityEngine;
 
-[Serializable]
-[Table("Conversation")]
-public class Conversation : DataItem
+[Table("CGClip")]
+public class CGClip:DataItem
 {
-    public List<int> messageIds;
-    [Column("message_id")]
-    public string messageIdsJson { get; set; }
-
     public override void Read()
     {
         throw new System.NotImplementedException();

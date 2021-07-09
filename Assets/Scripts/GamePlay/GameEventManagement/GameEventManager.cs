@@ -8,7 +8,7 @@ public class GameEventManager
 
     public static GameEventManager instance => _instance ??= new GameEventManager();
 
-    public ICollection<Event> eventCache => new List<Event>();
+    public ICollection<WorldEvent> eventCache => new List<WorldEvent>();
 
     public bool UpdateCondition()
     {

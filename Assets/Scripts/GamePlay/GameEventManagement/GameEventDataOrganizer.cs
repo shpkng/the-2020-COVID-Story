@@ -4,5 +4,5 @@ using System.Collections.Generic;
 
 public class GameEventDataOrganizer
 {
-    private List<EventDependency> events = new List<EventDependency>();
+    private List<WorldEventDependency> events = new List<WorldEventDependency>();
 }

@@ -1,5 +1,8 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
+using System.Collections.Generic;
+using SQLite;
+
 public enum Gender
 {
     Male,
@@ -20,28 +23,30 @@ public enum Occupation
     Unknown,
 }
 
-public struct User : IDatum
+[Table("Person")]
+public class Person : DataItem
 {
-    public string name;
-    public string userName;
-    public uint age;
-    public Gender gender;
-    public Nationality nationality;
-    public Occupation occupation;
-    public Occupation prevOccupation;
-    public Personality personality;
-    public uint id { get; }
+    public string favJson { get; set; }
+    private Dictionary<int, byte> favourability;
+    
+    public string name { get; set; }
+    public string userName { get; set; }
+    public int age { get; set; }
+    public int gender { get; set; }
+    public int nationality { get; set; }
+    public int occupation { get; set; }
+    public int prevOccupation { get; set; }
 
-    public void Read()
+    public override void Read()
     {
     }
 
-    public void Write()
+    public override void Write()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Merge(bool @override)
+    public override void Merge(bool @override)
     {
         throw new System.NotImplementedException();
     }

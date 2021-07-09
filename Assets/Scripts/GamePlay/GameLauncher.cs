@@ -1,18 +1,11 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
-using System;
 using UnityEngine;
 
-    public class GameLauncher : MonoBehaviour
+public class GameLauncher : MonoBehaviour
+{
+    private void Awake()
     {
-        private void Awake()
-        {
-           var res =  SaveManager.ResetLocal();
-           if (!res)
-           {
-               Debug.LogError("Reset failed.");
-           }
-           
-           
-        }
+        SaveManager.Init();
     }
+}

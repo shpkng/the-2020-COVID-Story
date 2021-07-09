@@ -1,17 +1,26 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
-using System;
-using System.Collections.Generic;
 using SQLite;
-using UnityEngine;
 
-[Serializable]
-[Table("Conversation")]
-public class Conversation : DataItem
+public enum ContentType
 {
-    public List<int> messageIds;
-    [Column("message_id")]
-    public string messageIdsJson { get; set; }
+    Text,
+    Audio,
+    Image,
+    Video,
+    Contact,
+    Address,
+}
+
+[Table("Tweet")]
+public class Tweet : DataItem
+{
+    [Column("type")]
+    public ContentType type{get; set;}
+    [Column("content_id")]
+    public int contentId{get; set; }
+    [Column("sender_id")]
+    public int sender { get; set; }
 
     public override void Read()
     {

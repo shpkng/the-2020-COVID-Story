@@ -1,46 +1,50 @@
 // Author: wuchenyang(shpkng@gmail.com)
-public interface IMessage :IDatum
+
+using System;
+using UnityEngine;
+
+public abstract class MessageBase : DataItem
 {
-    PostContent[] contents { get; }
+    Tweet[] contents { get; }
 }
 
-public struct Message:IMessage
+[Serializable]
+public class Message : MessageBase
 {
-    public PostContent[] _contents;
-    public uint id { get; }
-    public PostContent[] contents { get; }
-    public void Read()
+    public Tweet[] _contents;
+
+    public override void Read()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Write()
+    public override void Write()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Merge(bool @override)
+    public override void Merge(bool @override)
     {
         throw new System.NotImplementedException();
     }
 }
 
-public struct ReplyMessage : IMessage
+[Serializable]
+public class ReplyMessage : MessageBase
 {
-    public PostContent[] _contents;
-    public uint id { get; }
-    public PostContent[] contents { get; }
-    public void Read()
+    public Tweet[] _contents;
+
+    public override void Read()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Write()
+    public override void Write()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Merge(bool @override)
+    public override void Merge(bool @override)
     {
         throw new System.NotImplementedException();
     }

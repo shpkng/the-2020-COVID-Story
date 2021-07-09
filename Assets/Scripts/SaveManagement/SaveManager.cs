@@ -1,20 +1,19 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
+using System;
 using UnityEngine;
 using System.IO;
+using SQLite;
 using Directory = UnityEngine.Windows.Directory;
 
 public class SaveManager
 {
-    private const string defaultDataName = "defualt.db";
+    private const string defaultDataName = "default.db";
     private const string userDataName = "current.db";
     private const string userDataFolderName = "UserData";
     private static string _defaultDataPath;
     private static string _userDataFolderPath;
     private static string _userDataPath;
-
-    private static SaveManager _instance;
-    private static SaveManager instance => _instance ??= new SaveManager();
 
     private static string defaultDataPath =>
         _defaultDataPath ??= Path.Combine(Application.streamingAssetsPath, defaultDataName);
@@ -26,28 +25,12 @@ public class SaveManager
 
     private static bool defaultDataExists => File.Exists(defaultDataPath);
 
-    private static bool isUserDataExisting => File.Exists(userDataPath);
+    private static bool userDataExisting => File.Exists(userDataPath);
 
 
-    private bool _ResetLocal()
+    private static bool ResetLocal()
     {
         return false;
-    }
-
-    private bool _SaveLocal()
-    {
-        return false;
-    }
-
-    public static bool ResetLocal()
-    {
-        DBManager.LoadDefault();
-        return instance._ResetLocal();
-    }
-
-    public static bool SaveLocal()
-    {
-        return instance._SaveLocal();
     }
 
     public static bool CopyDefault(bool ignoreExisting = false)
@@ -58,7 +41,7 @@ public class SaveManager
             return false;
         }
 
-        if (!ignoreExisting && isUserDataExisting)
+        if (!ignoreExisting && userDataExisting)
         {
             Debug.LogError($"{userDataPath} exists!");
             return false;
@@ -71,5 +54,25 @@ public class SaveManager
 
         File.Copy(defaultDataPath, userDataPath);
         return true;
+    }
+
+    public static void Init()
+    {
+        // if (!userDataExisting)
+        //     if (!ResetLocal())
+        //     {
+        //         Debug.LogError("初始化错误！");
+        //         return;
+        //     }
+        
+        var db = new SQLiteConnection(defaultDataPath);
+        db.CreateTable<Person>();
+        db.CreateTable<Tweet>();
+        db.Insert(new Person
+        {
+            age = 1, favJson = "123", gender = (int) Gender.Female, id = 10086, name = "Fan Fu",
+            nationality = (int) Nationality.China, occupation = (int) Occupation.Unknown, time = DateTime.Now,
+            userName = "ff"
+        });
     }
 }

@@ -1,5 +1,33 @@
 {
   "dependencies": {
+    "com.flawlyframework.collections": {
+      "version": "https://github.com/shpkng/FlawlyFramework.git#Collections",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8f5fed4e7cb428a33328a803d32c0f7e2b50f342"
+    },
+    "com.flawlyframework.ui": {
+      "version": "https://github.com/shpkng/FlawlyFramework.git#UI",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "0a49c62220035c96252b34fef7307efe8ce18c6b"
+    },
+    "com.flawlyframework.utils": {
+      "version": "https://github.com/shpkng/FlawlyFramework.git#Utils",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e54f85f83e1266234dae47fe9deb389eed71c3a7"
+    },
+    "com.praeclarum.sqlite-net": {
+      "version": "1.7.33503",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.cn"
+    },
     "com.unity.2d.animation": {
       "version": "6.0.1",
       "depth": 0,
@@ -173,6 +201,13 @@
         "com.unity.modules.physics2d": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "jillejr.newtonsoft.json-for-unity": {
+      "version": "13.0.102",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://npm.cloudsmith.io/jillejr/newtonsoft-json-for-unity"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

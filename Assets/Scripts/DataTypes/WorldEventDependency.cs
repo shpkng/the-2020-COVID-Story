@@ -1,33 +1,37 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
+using System;
+using SQLite;
+
 enum EventDependencyType
 {
     SawTwitter,
     PostTwitter,
-    
+
     GetNewFriend,
     ApplyNewFriend,
     AcceptNewFriend,
-    
+
     SawMessage,
     SendMessage,
 }
 
-public struct EventDependency:IDatum
+[Table("WorldEventDependency")]
+public class WorldEventDependency : DataItem
 {
     public uint conditionId;
-    public uint id { get; }
-    public void Read()
+
+    public override void Read()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Write()
+    public override void Write()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Merge(bool @override)
+    public override void Merge(bool @override)
     {
         throw new System.NotImplementedException();
     }

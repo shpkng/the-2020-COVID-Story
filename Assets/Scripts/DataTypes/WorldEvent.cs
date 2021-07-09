@@ -1,17 +1,12 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
-using System;
-using System.Collections.Generic;
 using SQLite;
-using UnityEngine;
 
-[Serializable]
-[Table("Conversation")]
-public class Conversation : DataItem
+[Table("WorldEvent")]
+public class WorldEvent : DataItem
 {
-    public List<int> messageIds;
-    [Column("message_id")]
-    public string messageIdsJson { get; set; }
+    private WorldEventDependency[] _eventDependencies;
+    public bool AllDependenciesMet => _eventDependencies.Length == 0;
 
     public override void Read()
     {

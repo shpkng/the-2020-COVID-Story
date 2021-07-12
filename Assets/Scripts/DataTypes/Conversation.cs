@@ -10,7 +10,7 @@ using UnityEngine;
 public class Conversation : DataItem
 {
     public List<int> messageIds;
-    [Column("message_id")]
+    [Column("message_ids")]
     public string messageIdsJson { get; set; }
 
     public override void Read()

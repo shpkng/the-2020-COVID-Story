@@ -15,11 +15,11 @@
       "hash": "0a49c62220035c96252b34fef7307efe8ce18c6b"
     },
     "com.flawlyframework.utils": {
-      "version": "https://github.com/shpkng/FlawlyFramework.git#Utils",
+      "version": "https://github.com/shpkng/FlawlyFramework.git#Utils@0.0.4",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "e54f85f83e1266234dae47fe9deb389eed71c3a7"
+      "hash": "e20cdcddadbd527b54c2f8a672d9af6c129abafe"
     },
     "com.praeclarum.sqlite-net": {
       "version": "1.7.33503",
@@ -148,7 +148,7 @@
     },
     "com.unity.test-framework": {
       "version": "1.1.24",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6",

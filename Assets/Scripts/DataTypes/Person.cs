@@ -26,16 +26,17 @@ public enum Occupation
 [Table("Person")]
 public class Person : DataItem
 {
-    public string favJson { get; set; }
+    [Column("fav_json")] public string favJson { get; set; }
     private Dictionary<int, byte> favourability;
-    
-    public string name { get; set; }
-    public string userName { get; set; }
-    public int age { get; set; }
-    public int gender { get; set; }
-    public int nationality { get; set; }
-    public int occupation { get; set; }
-    public int prevOccupation { get; set; }
+
+    [Column("name")] public string name { get; set; }
+    [Column("user_name")] public string userName { get; set; }
+    [Column("age")] public int age { get; set; }
+
+    [Column("gender")] public int gender { get; set; }
+    [Column("nationality")] public int nationality { get; set; }
+    [Column("occupation")] public int occupation { get; set; }
+    [Column("prev_occupation")] public int prevOccupation { get; set; }
 
     public override void Read()
     {

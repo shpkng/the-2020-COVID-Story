@@ -5,8 +5,9 @@ using SQLite;
 [Table("WorldEvent")]
 public class WorldEvent : DataItem
 {
-    private WorldEventDependency[] _eventDependencies;
-    public bool AllDependenciesMet => _eventDependencies.Length == 0;
+    private WorldEventDependency[] dependencies;
+    [Column("dependency_ids")] public int[] dependencyIds { get; set; }
+    public bool AllDependenciesMet => dependencies.Length == 0;
 
     public override void Read()
     {

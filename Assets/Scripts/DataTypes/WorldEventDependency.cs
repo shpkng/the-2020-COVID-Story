@@ -1,25 +1,25 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
-using System;
 using SQLite;
 
 enum EventDependencyType
 {
-    SawTwitter,
+    ReadTwitter,
     PostTwitter,
 
     GetNewFriend,
     ApplyNewFriend,
     AcceptNewFriend,
 
-    SawMessage,
+    ReadMessage,
     SendMessage,
 }
 
 [Table("WorldEventDependency")]
 public class WorldEventDependency : DataItem
 {
-    public uint conditionId;
+    [Column("condition_id")] public int conditionId { get; set; }
+    [Column("")] public float marker { get; set; }
 
     public override void Read()
     {

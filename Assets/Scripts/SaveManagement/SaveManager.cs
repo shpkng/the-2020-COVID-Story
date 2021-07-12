@@ -1,12 +1,10 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
-using System;
 using UnityEngine;
 using System.IO;
-using SQLite;
-using Directory = UnityEngine.Windows.Directory;
+using FF.Utils;
 
-public class SaveManager
+public class SaveManager : MonoSingleton<SaveManager>
 {
     private const string defaultDataName = "default.db";
     private const string userDataName = "current.db";
@@ -58,21 +56,6 @@ public class SaveManager
 
     public static void Init()
     {
-        // if (!userDataExisting)
-        //     if (!ResetLocal())
-        //     {
-        //         Debug.LogError("初始化错误！");
-        //         return;
-        //     }
-        
-        var db = new SQLiteConnection(defaultDataPath);
-        db.CreateTable<Person>();
-        db.CreateTable<Tweet>();
-        db.Insert(new Person
-        {
-            age = 1, favJson = "123", gender = (int) Gender.Female, id = 10086, name = "Fan Fu",
-            nationality = (int) Nationality.China, occupation = (int) Occupation.Unknown, time = DateTime.Now,
-            userName = "ff"
-        });
+        DBManager.Instance.Init(defaultDataPath);
     }
 }

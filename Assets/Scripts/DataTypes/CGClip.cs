@@ -3,8 +3,10 @@
 using SQLite;
 
 [Table("CGClip")]
-public class CGClip:DataItem
+public class CGClip : DataItem
 {
+    [Column("path")] public string path { get; set; }
+
     public override void Read()
     {
         throw new System.NotImplementedException();

@@ -1,12 +1,20 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
 using System;
+using Newtonsoft.Json;
 using SQLite;
 
 public abstract class MessageBase : DataItem
 {
     public Tweet[] contents { get; private set; }
-    [Column("message_ids")] public int[] contetnIds { get; set; }
+    public int[] contentIds;
+
+    [Column("message_ids_str")]
+    public string contentIdsStr
+    {
+        get => JsonConvert.SerializeObject(contentIds);
+        set => contentIds = JsonConvert.DeserializeObject<int[]>(value);
+    }
 }
 
 [Serializable]

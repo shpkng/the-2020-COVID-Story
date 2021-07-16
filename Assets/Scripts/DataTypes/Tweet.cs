@@ -29,7 +29,7 @@ public class Tweet : DataItem
 
     public override void Write()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void Merge(bool @override)

@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using SQLite;
 using UnityEngine;
 
@@ -10,8 +11,13 @@ using UnityEngine;
 public class Conversation : DataItem
 {
     public List<int> messageIds;
+
     [Column("message_ids")]
-    public string messageIdsJson { get; set; }
+    public string messageIdsJson
+    {
+        get => JsonConvert.SerializeObject(messageIds);
+        set => JsonConvert.DeserializeObject<List<int>>(value);
+    }
 
     public override void Read()
     {

@@ -1,61 +1,52 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
-using UnityEngine;
-using System.IO;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using FF.Utils;
 
-public class SaveManager : MonoSingleton<SaveManager>
+/// <summary>
+/// 数据库中读取数据后存在当前类
+/// </summary>
+public class CacheManager : Singleton<CacheManager>
 {
-    private const string defaultDataName = "default.db";
-    private const string userDataName = "current.db";
-    private const string userDataFolderName = "UserData";
-    private static string _defaultDataPath;
-    private static string _userDataFolderPath;
-    private static string _userDataPath;
+    private Dictionary<Type, object> tables;
 
-    private static string defaultDataPath =>
-        _defaultDataPath ??= Path.Combine(Application.streamingAssetsPath, defaultDataName);
-
-    private static string userDataFolderPath =>
-        _userDataFolderPath ??= Path.Combine(Application.persistentDataPath, userDataFolderName);
-
-    private static string userDataPath => _userDataPath ??= Path.Combine(Application.persistentDataPath, userDataName);
-
-    private static bool defaultDataExists => File.Exists(defaultDataPath);
-
-    private static bool userDataExisting => File.Exists(userDataPath);
-
-
-    private static bool ResetLocal()
+    public void Init()
     {
-        return false;
+        Clear();
+        tables = new Dictionary<Type, object>();
+        LoadTables();
+        RegisterEvents();
     }
 
-    public static bool CopyDefault(bool ignoreExisting = false)
+    private void RegisterEvents()
     {
-        if (!defaultDataExists)
-        {
-            Debug.LogError("Default data is not available!");
-            return false;
-        }
-
-        if (!ignoreExisting && userDataExisting)
-        {
-            Debug.LogError($"{userDataPath} exists!");
-            return false;
-        }
-
-        if (!Directory.Exists(userDataFolderPath))
-        {
-            Directory.CreateDirectory(userDataFolderPath);
-        }
-
-        File.Copy(defaultDataPath, userDataPath);
-        return true;
     }
 
-    public static void Init()
+    public void LoadTables()
     {
-        DBManager.Instance.Init(defaultDataPath);
+        if (DBManager.Instance.GetTable(out List<Message> messages))
+            tables.Add(typeof(Message), messages);
+        if (DBManager.Instance.GetTable(out List<Person> persons))
+            tables.Add(typeof(Person), persons);
+        if (DBManager.Instance.GetTable(out List<Conversation> conversations))
+            tables.Add(typeof(Conversation), conversations);
+        if (DBManager.Instance.GetTable(out List<Tweet> tweets))
+            tables.Add(typeof(Tweet), tweets);
+        if (DBManager.Instance.GetTable(out List<WorldEvent> events))
+            tables.Add(typeof(WorldEvent), events);
+        if (DBManager.Instance.GetTable(out List<WorldEventDependency> eventDependencies))
+            tables.Add(typeof(WorldEventDependency), eventDependencies);
+    }
+
+    public void SaveTables()
+    {
+    }
+
+    public void Clear()
+    {
+        tables?.Clear();
+        tables = null;
     }
 }

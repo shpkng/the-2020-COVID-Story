@@ -6,9 +6,7 @@ using SQLite;
 
 public abstract class MessageBase : DataItem
 {
-    public Tweet[] contents { get; private set; }
     public int[] contentIds;
-
     [Column("message_ids_str")]
     public string contentIdsStr
     {

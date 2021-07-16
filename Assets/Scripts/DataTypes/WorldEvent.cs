@@ -1,26 +1,46 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
 using SQLite;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 [Table("WorldEvent")]
 public class WorldEvent : DataItem
 {
-    private WorldEventDependency[] dependencies;
-    [Column("dependency_ids")] public string dependencyIds { get; set; }
-    public bool AllDependenciesMet => dependencies.Length == 0;
+    public List<int> dependencyIds;
+    [Column("dependency_ids")]
+    public string dependencyIdStr
+    {
+        get => JsonConvert.SerializeObject(dependencyIds);
+        set => dependencyIds = JsonConvert.DeserializeObject<List<int>>(value);
+    }
+    public bool AllDependenciesMet => dependencyIds.Count == 0;
 
     public override void Read()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void Write()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void Merge(bool @override)
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    public void OnCondition(int id)
+    {
+        dependencyIds.Remove(id);
+        if (AllDependenciesMet)
+            Trigger();
+
+    }
+
+    public void Trigger()
+    {
+
     }
 }

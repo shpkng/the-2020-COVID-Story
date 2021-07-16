@@ -2,7 +2,6 @@
 
 using System;
 using SQLite;
-using UnityEngine;
 
 [Serializable]
 public abstract class DataItem

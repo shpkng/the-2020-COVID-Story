@@ -1,6 +1,7 @@
 // Author: wuchenyang(shpkng@gmail.com)
 
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 // 游戏的入口
@@ -14,14 +15,17 @@ public class GameLauncher : MonoBehaviour
     // 初始化游戏
     private static void Init()
     {
-        // 初始化游戏数据
+        //// 初始化游戏数据
         DBManager.Instance.Init(DBManager.defaultDataPath);
-        DataCacheManager.Instance.Init();
-        DBManager.Instance.CreateTable<Conversation>().Insert(new Conversation
+        DataCacheManager.Init();
+        DBManager.Instance.CreateTable<Tweet>().Insert(new Tweet
         {
-            id = 234,
-            messageIds = new List<int>() {8, 9, 6, 4},
+            contentIdStr = JsonConvert.SerializeObject(new int[] {1, 2, 3, 4, 5}),
+            showDevice = false
         });
         DBManager.Instance.Release();
+
+        // DataCacheManager.Init()
+        //     .LoadTables();
     }
 }

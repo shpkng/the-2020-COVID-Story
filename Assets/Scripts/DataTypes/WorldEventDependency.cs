@@ -44,7 +44,7 @@ public class WorldEventDependency : DataItem
         throw new System.NotImplementedException();
     }
 
-    public void Trigger(int type, params object[] args)
+    public void UpdateDependency(int type, params object[] args)
     {
         foreach (int eventId in relatedEventIds)
         {
@@ -58,7 +58,7 @@ public class WorldEventDependency : DataItem
                     continue;
                     
             }
-            item.OnCondition(id);
+            item.CompleteDependency(id);
         }
     }
 }

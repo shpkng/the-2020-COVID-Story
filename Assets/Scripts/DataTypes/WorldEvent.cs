@@ -31,7 +31,7 @@ public class WorldEvent : DataItem
 
     }
 
-    public void OnCondition(int id)
+    public void CompleteDependency(int id)
     {
         dependencyIds.Remove(id);
         if (AllDependenciesMet)

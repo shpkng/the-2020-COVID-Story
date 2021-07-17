@@ -9,7 +9,7 @@ using FF.Utils;
 public class DataCacheManager : Singleton<DataCacheManager>
 {
     private HashSet<IInitable> containers;
-    public void Init()
+    public DataCacheManager _Init()
     {
         containers = new HashSet<IInitable>
         {
@@ -26,8 +26,10 @@ public class DataCacheManager : Singleton<DataCacheManager>
         {
             item.Init();
         }
-        LoadTables();
+        return this;
     }
+
+    public static DataCacheManager Init() => Instance._Init();
 
     public void LoadTables()
     {

@@ -38,17 +38,5 @@ public class Person : DataItem
     [Column("occupation")] public int occupation { get; set; }
     [Column("prev_occupation")] public int prevOccupation { get; set; }
 
-    public override void Read()
-    {
-    }
 
-    public override void Write()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Merge(bool @override)
-    {
-        throw new System.NotImplementedException();
-    }
 }

@@ -18,32 +18,44 @@ public enum ContentType
 [Table("Tweet")]
 public class Tweet : DataItem
 {
-    [Column("type")] public int types { get; set; }
-    private int[] contentIds;
+    public int[] contentIds;
 
     [Column("content_id")]
     public string contentIdStr
     {
         get => JsonConvert.SerializeObject(contentIds);
-        set => JsonConvert.DeserializeObject<int[]>(value);
+        set => contentIds = JsonConvert.DeserializeObject<int[]>(value);
+    }
+
+    public int[] commentIds;
+
+    [Column("comment_id")]
+    public string commentIdStr
+    {
+        get => JsonConvert.SerializeObject(commentIds);
+        set => commentIds = JsonConvert.DeserializeObject<int[]>(value);
+    }
+
+    public int[] retweetIds;
+
+    [Column("retweet_id")]
+    public string retweetIdStr
+    {
+        get => JsonConvert.SerializeObject(retweetIds);
+        set => retweetIds = JsonConvert.DeserializeObject<int[]>(value);
+    }
+
+    public int[] likes;
+
+    [Column("likes_id")]
+    public string likeStr
+    {
+        get => JsonConvert.SerializeObject(likes);
+        set => likes = JsonConvert.DeserializeObject<int[]>(value);
     }
 
     [Column("sender_id")] public int sender { get; set; }
     [Column("show_sender_id")] public bool showSenderId { get; set; }
     [Column("device")] public string device { get; set; }
     [Column("show_device")] public bool showDevice { get; set; }
-
-    public override void Read()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Write()
-    {
-    }
-
-    public override void Merge(bool @override)
-    {
-        throw new System.NotImplementedException();
-    }
 }

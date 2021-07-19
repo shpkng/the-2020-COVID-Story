@@ -6,19 +6,5 @@ using SQLite;
 public class CGClip : DataItem
 {
     [Column("path")] public string path { get; set; }
-
-    public override void Read()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Write()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Merge(bool @override)
-    {
-        throw new System.NotImplementedException();
-    }
+    
 }

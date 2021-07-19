@@ -16,20 +16,7 @@ public class WorldEvent : DataItem
     }
     public bool AllDependenciesMet => dependencyIds.Count == 0;
 
-    public override void Read()
-    {
 
-    }
-
-    public override void Write()
-    {
-
-    }
-
-    public override void Merge(bool @override)
-    {
-
-    }
 
     public void CompleteDependency(int id)
     {

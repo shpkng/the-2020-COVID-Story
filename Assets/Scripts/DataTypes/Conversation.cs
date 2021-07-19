@@ -19,18 +19,4 @@ public class Conversation : DataItem
         set => JsonConvert.DeserializeObject<List<int>>(value);
     }
 
-    public override void Read()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Write()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Merge(bool @override)
-    {
-        throw new System.NotImplementedException();
-    }
 }

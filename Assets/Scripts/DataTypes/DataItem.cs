@@ -9,9 +9,13 @@ public abstract class DataItem
     [PrimaryKey, AutoIncrement, NotNull, Unique]
     public int id { get; set; }
 
-    [Column("time")] public DateTime time { get; set; }
+    public DateTime time;
 
-    public abstract void Read();
-    public abstract void Write();
-    public abstract void Merge(bool @override);
+    [Column("time")]
+    private long timestamp
+    {
+        get => time.ToFileTimeUtc();
+        set => time = DateTime.FromFileTimeUtc(value);
+    }
+
 }

@@ -5,11 +5,14 @@ using UnityEngine.UI;
 class TweetItem : MonoBehaviour, IDataItemDisplayer
 {
     [SerializeField] private TMP_Text txtName, txtContent, txtDevice;
+    [SerializeField] private PicButton[] pics; 
     private int id;
 
     public void SetData(DataItem dataItem)
     {
         if (!(dataItem is Tweet tweet))
+            return;
+        if (id == tweet.id)
             return;
         id = tweet.id;
         txtName.text = tweet.sender.GetPerson().userName;
